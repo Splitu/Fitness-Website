@@ -1,3 +1,4 @@
+@use "./utilities/colors" as c;
 *,
 *::before,
 *::after {
@@ -13,5 +14,130 @@ html {
 
 body {
 	font-family: "Sora", sans-serif;
-	font-size: 3rem;
+	font-size: 1.6rem;
+}
+
+.logo {
+	position: absolute;
+	color: c.$main-color;
+	font-size: 3.2rem;
+	margin: 20px;
+	font-weight: 600;
+}
+
+.nav {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: c.$page-color;
+	z-index: 100;
+	&__items {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		margin-top: 20px;
+		flex-direction: column;
+	}
+	&__item {
+		margin-bottom: 40px;
+		text-decoration: none;
+		color: c.$main-color;
+		font-size: 3.6rem;
+		&:hover {
+			color: c.$secondary-color;
+		}
+	}
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		margin-top: 40px;
+	}
+}
+
+.burger {
+	position: absolute;
+	width: 40px;
+	right: 0;
+	margin: 20px;
+	border: none;
+	outline: none;
+	background: none;
+	z-index: 1000;
+	&__lines {
+		height: 4px;
+		margin: 8px 0;
+		background-color: c.$main-color;
+		transition: width 0.3s;
+		&-line2 {
+			width: 30px;
+		}
+		&-line3 {
+			width: 20px;
+		}
+	}
+	&:hover {
+		.burger__lines {
+			width: 40px;
+		}
+	}
+}
+
+.btn {
+	background: none;
+	border: none;
+	color: c.$pure-white;
+	font-size: 2.4rem;
+	&--active {
+		background-color: c.$main-color;
+		outline: none;
+		border: none;
+		padding: 0.7em 1em;
+		margin-top: 2em;
+		font-size: 1.8rem;
+		border-radius: 8px;
+		color: c.$green-dark;
+		transition: all 0.3s;
+		&:hover {
+			background-color: c.$secondary-color;
+			color: c.$dark;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	background-image: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.2),
+			rgba(0, 0, 0, 0.2)
+		),
+		url(/dist/img/header.png);
+	background-size: cover;
+	background-position: 85%;
+	background-attachment: fixed;
+	&__title {
+		margin-left: 1em;
+		animation: appear 1s;
+	}
+	&__text {
+		color: c.$pure-white;
+		font-size: 3.6rem;
+		font-weight: 600;
+	}
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
 }
