@@ -27,6 +27,7 @@ body {
 }
 
 .logo {
+	text-decoration: none;
 	color: c.$main-color;
 	font-size: 3.2rem;
 	margin: 20px;
@@ -89,13 +90,13 @@ body {
 		color: c.$main-color;
 		&--white {
 			color: c.$pure-white;
-			font-size: 2.4rem;
+			font-size: 2rem;
 		}
 		&--active {
-			font-size: 2.4rem;
+			font-size: 2rem;
 			color: c.$dark;
 			background-color: c.$main-color;
-			padding: 0.8em;
+			padding: 0.6em;
 			border-radius: 8px;
 		}
 	}
@@ -128,6 +129,7 @@ body {
 	}
 	&__text {
 		color: c.$pure-white;
+		padding: 0 1em;
 		font-size: 3.6rem;
 		font-weight: 600;
 		animation: appear 1s;
