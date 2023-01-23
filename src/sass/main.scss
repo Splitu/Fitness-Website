@@ -18,6 +18,7 @@ html {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	height: 120px;
 }
 
 body {
@@ -28,7 +29,7 @@ body {
 
 .logo {
 	text-decoration: none;
-	color: c.$main-color;
+	color: c.$pure-white;
 	font-size: 3.2rem;
 	margin: 20px;
 	font-weight: 600;
@@ -63,6 +64,8 @@ body {
 	}
 }
 
+//NAV
+
 .nav {
 	display: flex;
 	position: fixed;
@@ -80,24 +83,24 @@ body {
 		flex-direction: column;
 		align-items: center;
 	}
-	&__login {
-		margin-top: 60px;
-	}
 	&__item {
 		font-size: 4rem;
 		margin-top: 40px;
 		text-decoration: none;
 		color: c.$main-color;
-		&--white {
-			color: c.$pure-white;
-			font-size: 2rem;
+		&:hover {
+			color: c.$secondary-color;
 		}
 		&--active {
-			font-size: 2rem;
+			margin-top: 80px;
+			text-decoration: none;
+			font-size: 1.6rem;
+			font-weight: bold;
 			color: c.$dark;
 			background-color: c.$main-color;
-			padding: 0.6em;
+			padding: 1em 3em;
 			border-radius: 8px;
+			animation: appear 2s 0.5s both;
 		}
 	}
 }
@@ -106,6 +109,7 @@ body {
 	transform: translateX(0);
 }
 
+//HEADER
 .header {
 	height: 100vh;
 	width: 100vw;
@@ -121,23 +125,20 @@ body {
 	background-attachment: fixed;
 	&__title {
 		height: 100vh;
-		width: 100vw;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 	}
 	&__text {
 		color: c.$pure-white;
 		padding: 0 1em;
 		font-size: 3.6rem;
 		font-weight: 600;
-		animation: appear 1s;
-	}
-	&__btn {
-		margin-top: 80px;
-		animation: appear 1s 0.5s both;
-		text-decoration: none;
+		text-transform: uppercase;
+		animation: appear 2s;
+		&--colorized {
+			color: c.$main-color;
+		}
 	}
 }
 
@@ -149,5 +150,46 @@ body {
 	100% {
 		opacity: 1;
 		transform: translateY(0px);
+	}
+}
+
+//MEDIA
+
+@media (min-width: 768px) {
+	.header {
+		&__text {
+			font-size: 4.6rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger {
+		display: none;
+	}
+	.nav {
+		background: none;
+		flex-direction: row;
+		justify-content: space-around;
+		height: 120px;
+		width: 40vw;
+		right: 2em;
+		transform: translateX(0);
+		&__items {
+			flex-direction: row;
+			justify-content: space-around;
+			width: 100%;
+		}
+		&__item {
+			margin-top: 0;
+			font-size: 2rem;
+			color: c.$pure-white;
+			&:hover {
+				color: c.$main-color;
+			}
+			&--active {
+				color: c.$dark;
+			}
+		}
 	}
 }
