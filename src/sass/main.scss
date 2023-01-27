@@ -1,4 +1,5 @@
 @use "./utilities/colors" as c;
+@use "./utilities/components";
 *,
 *::before,
 *::after {
@@ -33,35 +34,6 @@ body {
 	font-size: 3.2rem;
 	margin: 20px;
 	font-weight: 600;
-}
-
-.burger {
-	position: absolute;
-	width: 40px;
-	right: 0;
-	margin: 20px;
-	border: none;
-	outline: none;
-	background: none;
-	cursor: pointer;
-	z-index: 1000;
-	&__lines {
-		height: 4px;
-		margin: 8px 0;
-		background-color: c.$main-color;
-		transition: width 0.3s;
-		&-line2 {
-			width: 30px;
-		}
-		&-line3 {
-			width: 20px;
-		}
-	}
-	&:hover {
-		.burger__lines {
-			width: 40px;
-		}
-	}
 }
 
 //NAV
@@ -125,7 +97,6 @@ body {
 		url(/dist/img/header.png);
 	background-size: cover;
 	background-position: 85%;
-	background-attachment: fixed;
 	text-align: center;
 	&__title {
 		display: flex;
@@ -155,6 +126,53 @@ body {
 	100% {
 		opacity: 1;
 		transform: translateY(0px);
+	}
+}
+
+//MAIN
+//ABOUTUS
+.about-us {
+	&__textbox {
+		height: 300px;
+		width: 100vw;
+	}
+	&__text {
+		color: c.$pure-white;
+		line-height: 25px;
+		font-size: 1.8rem;
+		margin: 1em 1em;
+	}
+	&__link {
+		display: inline-block;
+		text-decoration: none;
+		font-weight: bold;
+		&::after {
+			content: "";
+			display: block;
+			width: 70%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: c.$main-color;
+			transition: width 0.3s;
+		}
+		&:hover::after {
+			width: 100%;
+		}
+	}
+	&__box {
+		background-color: c.$pure-white;
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__img {
+		width: 100%;
+		padding: 1em;
+		&--desktop {
+			display: none;
+		}
 	}
 }
 
